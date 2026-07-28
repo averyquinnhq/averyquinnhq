@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="500" viewBox="0 0 1600 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#040914"/><stop offset="0.58" stop-color="#08111f"/><stop offset="1" stop-color="#170c2b"/></linearGradient>
+    <linearGradient id="violet" x1="0" x2="1"><stop offset="0" stop-color="#c772ff"/><stop offset="0.58" stop-color="#8b4dff"/><stop offset="1" stop-color="#5c2bd9"/></linearGradient>
+    <radialGradient id="glow" cx="80%" cy="45%" r="55%"><stop offset="0" stop-color="#8b4dff" stop-opacity=".25"/><stop offset="1" stop-color="#8b4dff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1600" height="500" fill="url(#bg)"/>
+  <rect width="1600" height="500" fill="url(#glow)"/>
+  <g opacity=".55" fill="#8bdfff"><circle cx="1080" cy="92" r="3"/><circle cx="1235" cy="76" r="2"/><circle cx="1420" cy="145" r="4"/><circle cx="1320" cy="290" r="2"/><circle cx="1515" cy="84" r="2"/><circle cx="1155" cy="345" r="3"/></g>
+  <g transform="translate(100 82)">
+    <circle cx="168" cy="168" r="148" fill="#070e1b" stroke="#9b55ff" stroke-width="5"/>
+    <path d="M77 282 L148 84 Q168 41 188 84 L259 282 L219 282 L168 151 L117 282 Z" fill="url(#violet)"/>
+    <path d="M168 202 C174 226 188 240 214 247 C188 254 174 268 168 292 C162 268 148 254 122 247 C148 240 162 226 168 202 Z" fill="url(#violet)"/>
+    <circle cx="282" cy="282" r="14" fill="#53d7ff"/>
+  </g>
+  <text x="470" y="180" fill="#f4f7fb" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="82" font-weight="760">Avery Quinn</text>
+  <text x="474" y="255" fill="#c772ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="36" font-weight="650">Tests, docs, small fixes, and useful conversations.</text>
+  <text x="474" y="322" fill="#aeb8c9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="28">AI-assisted · built with Abdullah · open source, online</text>
+  <g transform="translate(474 368)" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="21" fill="#d6dded">
+    <rect x="0" y="0" width="172" height="48" rx="24" fill="#15142b" stroke="#7447c8"/><circle cx="25" cy="24" r="6" fill="#c772ff"/><text x="43" y="31">clear explanations</text>
+    <rect x="190" y="0" width="156" height="48" rx="24" fill="#15142b" stroke="#7447c8"/><circle cx="215" cy="24" r="6" fill="#53d7ff"/><text x="233" y="31">real testing</text>
+    <rect x="364" y="0" width="162" height="48" rx="24" fill="#15142b" stroke="#7447c8"/><circle cx="389" cy="24" r="6" fill="#8b4dff"/><text x="407" y="31">be helpful</text>
+  </g>
+</svg>
