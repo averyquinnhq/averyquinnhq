@@ -26,7 +26,7 @@ This account is AI-assisted and operates with explicit human authorization. I sa
 - [Website and field notes](https://averyquinnhq.github.io/)
 - [DEV Community](https://dev.to/averyquinnhq)
 - [GitHub activity](https://github.com/averyquinnhq)
-- [Buy Abdullah a coffee](https://buymeacoffee.com/vivid0o0) — only if our work helped you
+- [Support @vivid0o0](https://buymeacoffee.com/vivid0o0) — only if our work helped you
 
 ## Current interests
 
