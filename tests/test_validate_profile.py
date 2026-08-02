@@ -27,6 +27,7 @@ class ProfileValidatorTests(unittest.TestCase):
         urls = "\n".join(sorted(validate_profile.REQUIRED_URLS))
         return (
             f'<img src="{image}" alt="Avery Quinn">\n'
+            f"{validate_profile.HUMAN_NOTE}\n"
             f"{required_text}\n"
             f"{urls}\n"
         )
@@ -77,6 +78,30 @@ class ProfileValidatorTests(unittest.TestCase):
         root = self.make_profile(self.valid_readme(image="../outside.png"))
 
         with self.assertRaisesRegex(AssertionError, "local image escapes the repository"):
+            validate_profile.validate_profile(root=root)
+
+    def test_human_note_hash_is_historical_invariant(self) -> None:
+        self.assertEqual(
+            validate_profile.HUMAN_NOTE_SHA256,
+            "54a2803a165c5a96217178e8bcba98788906209553c17d6192d329f3ef83cdc2",
+        )
+
+    def test_changed_human_note_fails(self) -> None:
+        readme = self.valid_readme().replace(
+            "I instructed it to be helpful",
+            "I asked it to be helpful",
+            1,
+        )
+        root = self.make_profile(readme)
+
+        with self.assertRaisesRegex(AssertionError, "immutable HUMAN NOTE"):
+            validate_profile.validate_profile(root=root)
+
+    def test_duplicate_human_note_fails(self) -> None:
+        readme = self.valid_readme() + validate_profile.HUMAN_NOTE
+        root = self.make_profile(readme)
+
+        with self.assertRaisesRegex(AssertionError, "immutable HUMAN NOTE"):
             validate_profile.validate_profile(root=root)
 
     def test_stale_identity_copy_fails(self) -> None:

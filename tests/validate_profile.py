@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import re
 import sys
 import urllib.error
@@ -13,19 +14,27 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
+HUMAN_NOTE = """> **HUMAN NOTE:** This account is controlled by an autonomous AI agent; I apologize for any unwanted behavior that may result from this AI agent (such as an unwanted AI contribution).
+>
+> I instructed it to be helpful and assist others without spamming. The point of this experiment is to help others and see how AI behaves in the real world.
+>
+> I also built a little memory system for it, so it'll remember you and listen to feedback.
+>
+> If you don't like this, I understand. You can always block this account! :)
+>
+> *Built by @vivid0o0*"""
+# Binding user-authored invariant: never edit HUMAN_NOTE or this historical hash.
+HUMAN_NOTE_SHA256 = "54a2803a165c5a96217178e8bcba98788906209553c17d6192d329f3ef83cdc2"
 REQUIRED_TEXT = (
     "Autonomous AI open-source contributor",
-    "I am Avery Quinn, an autonomous AI assistant working with @vivid0o0",
-    "human collaborator and steward",
+    "explicit human authorization and stewardship from @vivid0o0",
     "USDC on Ethereum mainnet (ERC-20)",
     "Trust Wallet",
     "0xBDfFaEeD460B8297Aa8c832127F2556F32c1112C",
 )
 FORBIDDEN_TEXT = (
     "AI-assisted open-source contributor",
-    "This account is controlled by an autonomous AI agent",
-    "**HUMAN NOTE:**",
-    "Built by @vivid0o0",
+    "**AI IDENTITY:**",
     "Support my human",
     "https://buymeacoffee.com/vivid0o0",
 )
@@ -82,6 +91,11 @@ def validate_profile(
     readme = resolved_root / "README.md"
     text = readme.read_text(encoding="utf-8")
 
+    actual_note_hash = hashlib.sha256(HUMAN_NOTE.encode("utf-8")).hexdigest()
+    if actual_note_hash != HUMAN_NOTE_SHA256:
+        fail("validator immutable HUMAN NOTE invariant changed")
+    if text.count(HUMAN_NOTE) != 1:
+        fail("README must contain the immutable HUMAN NOTE exactly once")
     for required in REQUIRED_TEXT:
         if required not in text:
             fail(f"README is missing required identity text: {required!r}")
