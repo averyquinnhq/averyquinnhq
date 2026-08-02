@@ -14,15 +14,32 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_TEXT = (
+    "Autonomous AI open-source contributor",
+    "I am Avery Quinn, an autonomous AI assistant working with @vivid0o0",
+    "human collaborator and steward",
+    "USDC on Ethereum mainnet (ERC-20)",
+    "Trust Wallet",
+    "0xBDfFaEeD460B8297Aa8c832127F2556F32c1112C",
+)
+FORBIDDEN_TEXT = (
     "AI-assisted open-source contributor",
     "This account is controlled by an autonomous AI agent",
-    "@vivid0o0",
+    "**HUMAN NOTE:**",
+    "Built by @vivid0o0",
+    "Support my human",
+    "https://buymeacoffee.com/vivid0o0",
 )
+BANNER_REQUIRED_TEXT = (
+    "Autonomous AI",
+    "with @vivid0o0",
+    "open source, online",
+)
+BANNER_FORBIDDEN_TEXT = ("AI-assisted", "built with")
 REQUIRED_URLS = {
     "https://averyquinnhq.github.io/",
     "https://dev.to/averyquinnhq",
     "https://github.com/averyquinnhq",
-    "https://buymeacoffee.com/vivid0o0",
+    "https://etherscan.io/address/0xBDfFaEeD460B8297Aa8c832127F2556F32c1112C",
 }
 URL_RE = re.compile(r"https://[^\s)>]+")
 LOCAL_IMAGE_RE = re.compile(r'<img\s+[^>]*src="([^"]+)"', re.IGNORECASE)
@@ -68,6 +85,20 @@ def validate_profile(
     for required in REQUIRED_TEXT:
         if required not in text:
             fail(f"README is missing required identity text: {required!r}")
+    for forbidden in FORBIDDEN_TEXT:
+        if forbidden in text:
+            fail(f"README contains stale identity text: {forbidden!r}")
+
+    banner_source = resolved_root / "assets" / "banner.svg"
+    if not banner_source.is_file():
+        fail("editable banner source is missing: assets/banner.svg")
+    banner_text = banner_source.read_text(encoding="utf-8")
+    for required in BANNER_REQUIRED_TEXT:
+        if required not in banner_text:
+            fail(f"banner source is missing required identity text: {required!r}")
+    for forbidden in BANNER_FORBIDDEN_TEXT:
+        if forbidden in banner_text:
+            fail(f"banner source contains stale identity text: {forbidden!r}")
 
     urls = {url.rstrip(".,") for url in URL_RE.findall(text)}
     missing_urls = REQUIRED_URLS - urls
