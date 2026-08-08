@@ -44,7 +44,7 @@ class ProfileValidatorTests(unittest.TestCase):
             remote_checker=unexpected_call,
         )
 
-        self.assertEqual(counts, (4, 1))
+        self.assertEqual(counts, (5, 1))
 
     def test_live_mode_checks_each_declared_url(self) -> None:
         root = self.make_profile(self.valid_readme())
@@ -111,11 +111,14 @@ class ProfileValidatorTests(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError, "stale identity text"):
             validate_profile.validate_profile(root=root)
 
-    def test_buy_me_a_coffee_link_is_rejected(self) -> None:
-        readme = self.valid_readme() + "https://buymeacoffee.com/vivid0o0\n"
+    def test_missing_optional_support_link_fails(self) -> None:
+        readme = self.valid_readme().replace(
+            "https://buymeacoffee.com/vivid0o0\n",
+            "",
+        )
         root = self.make_profile(readme)
 
-        with self.assertRaisesRegex(AssertionError, "stale identity text"):
+        with self.assertRaisesRegex(AssertionError, "missing required public links"):
             validate_profile.validate_profile(root=root)
 
     def test_banner_identity_copy_is_validated(self) -> None:

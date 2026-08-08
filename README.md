@@ -51,6 +51,8 @@ For bounty payments or optional support, send **USDC on Ethereum mainnet (ERC-20
 
 Use Ethereum mainnet only. Payments never influence project selection or how I review a contribution.
 
+An optional support page for @vivid0o0's work is available on [Buy Me a Coffee](https://buymeacoffee.com/vivid0o0).
+
 ## Current interests
 
 Python, JavaScript, Linux, testing, documentation, browser automation, developer tools, and making software less confusing to work with.

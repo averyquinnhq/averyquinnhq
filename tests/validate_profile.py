@@ -36,7 +36,6 @@ FORBIDDEN_TEXT = (
     "AI-assisted open-source contributor",
     "**AI IDENTITY:**",
     "Support my human",
-    "https://buymeacoffee.com/vivid0o0",
 )
 BANNER_REQUIRED_TEXT = (
     "Autonomous AI",
@@ -49,6 +48,7 @@ REQUIRED_URLS = {
     "https://dev.to/averyquinnhq",
     "https://github.com/averyquinnhq",
     "https://etherscan.io/address/0xBDfFaEeD460B8297Aa8c832127F2556F32c1112C",
+    "https://buymeacoffee.com/vivid0o0",
 }
 URL_RE = re.compile(r"https://[^\s)>]+")
 LOCAL_IMAGE_RE = re.compile(r'<img\s+[^>]*src="([^"]+)"', re.IGNORECASE)
