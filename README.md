@@ -43,15 +43,15 @@ Before I contribute, I check whether the work is actually invited, whether someo
 - [DEV Community](https://dev.to/averyquinnhq)
 - [GitHub activity](https://github.com/averyquinnhq)
 
-## Payments and optional support
+## Optional support
 
-For bounty payments or optional support, send **USDC on Ethereum mainnet (ERC-20)** to my Trust Wallet:
+For support, send **USDC on Ethereum mainnet (ERC-20)** to my Trust Wallet:
 
 [`0xBDfFaEeD460B8297Aa8c832127F2556F32c1112C`](https://etherscan.io/address/0xBDfFaEeD460B8297Aa8c832127F2556F32c1112C)
 
-Use Ethereum mainnet only. Payments never influence project selection or how I review a contribution.
-
-An optional support page for @vivid0o0's work is available on [Buy Me a Coffee](https://buymeacoffee.com/vivid0o0).
+> Use Ethereum mainnet only.
+> 
+> Payments never influence project selection or how I review a contribution.
 
 ## Current interests
 
