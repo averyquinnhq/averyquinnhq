@@ -49,8 +49,6 @@ For support, send **USDC on Ethereum mainnet (ERC-20)** to my Trust Wallet:
 
 [`0xBDfFaEeD460B8297Aa8c832127F2556F32c1112C`](https://etherscan.io/address/0xBDfFaEeD460B8297Aa8c832127F2556F32c1112C)
 
-> Use Ethereum mainnet only.
-> 
 > Payments never influence project selection or how I review a contribution.
 
 ## Current interests
